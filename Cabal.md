@@ -11,3 +11,12 @@ cabal build [name]
 ```
 
 注：Cabal 搜索源文件，模块名字和目录文件名是对应的。
+
+## 国内镜像
+
+创建 ~/.cabal/config 文件，写下国内源，不然下载很慢。
+```ini
+repository mirrors.ustc.edu.cn
+  url: https://mirrors.ustc.edu.cn/hackage/
+  secure: True
+```
