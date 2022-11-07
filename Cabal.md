@@ -10,6 +10,8 @@ cabal build
 cabal build [name]
 ```
 
+cabal 的包都是卸载 *.cabal 文件下 build-depends 里面，没有安装包命令，也没有项目包目录。
+
 注：Cabal 搜索源文件，模块名字和目录文件名是对应的。
 
 ## 国内镜像
