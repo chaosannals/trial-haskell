@@ -4,6 +4,8 @@
 
 直接在 [科大镜像](https://mirrors.ustc.edu.cn/) 找，以下版本老的话是无效的。找最新的。
 
+[镜像使用文档](https://mirrors.ustc.edu.cn/help/ghcup.html)
+
 ```pwsh
 $env:BOOTSTRAP_HASKELL_YAML = 'https://mirrors.ustc.edu.cn/ghcup/ghcup-metadata/ghcup-0.0.6.yaml'
 Set-ExecutionPolicy Bypass -Scope Process -Force;[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;Invoke-Command -ScriptBlock ([ScriptBlock]::Create((Invoke-WebRequest https://mirrors.ustc.edu.cn/ghcup/sh/bootstrap-haskell.ps1 -UseBasicParsing))) -ArgumentList $true
