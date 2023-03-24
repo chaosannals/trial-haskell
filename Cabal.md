@@ -17,6 +17,7 @@ cabal 的包都是卸载 *.cabal 文件下 build-depends 里面，没有安装�
 ## 国内镜像
 
 创建 ~/.cabal/config 文件，写下国内源，不然下载很慢。
+注：Windows 下该文件已经移动到安装目录下 config 文件，而非 ~/.cabal/config 。
 ```ini
 repository mirrors.ustc.edu.cn
   url: https://mirrors.ustc.edu.cn/hackage/
