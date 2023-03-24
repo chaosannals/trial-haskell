@@ -11,6 +11,8 @@ $env:BOOTSTRAP_HASKELL_YAML = 'https://mirrors.ustc.edu.cn/ghcup/ghcup-metadata/
 Set-ExecutionPolicy Bypass -Scope Process -Force;[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;Invoke-Command -ScriptBlock ([ScriptBlock]::Create((Invoke-WebRequest https://mirrors.ustc.edu.cn/ghcup/sh/bootstrap-haskell.ps1 -UseBasicParsing))) -ArgumentList $true
 ```
 
+注：Windows 下的 ghcup 的配置文件，文档提及是在 ~/.ghcup/config.yaml 下，但实测是放在安装目录下 config.yaml 文件。
+
 注：Cabal 在源卡住时可以配置如下，然后再执行，不过执行后还是要再改一次。
 Cabal 源，安装后，可以在 cabal 的安装目录下找到 config 文件。
 
