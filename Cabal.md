@@ -1,8 +1,19 @@
 # Cabal
 
+```bash
+# 更新库列表
+cabal update
+
+# 在当前目录下生成初始化的项目文件，dirname.cabal 以及其他文件。
+cabal init
+```
+
 如今 Cabal 已经是 版本 3.x ，早先的 v2-* 开头命令在第 Cabal2 版本已经成为标准。
 
 ```bash
+# 执行默认程序
+cabal run
+
 # 构建全部
 cabal build
 
