@@ -11,13 +11,16 @@ cabal init
 如今 Cabal 已经是 版本 3.x ，早先的 v2-* 开头命令在第 Cabal2 版本已经成为标准。
 
 ```bash
-# 执行默认程序
+# 执行默认程序 名字必须与 .cabal 的 name 一致。
 cabal run
+
+# 执行指定程序
+cabal run [name]
 
 # 构建全部
 cabal build
 
-# 指定项目
+# 构建指定项目
 cabal build [name]
 ```
 

@@ -21,14 +21,26 @@ maintainer:         chenshenchao@outlook.com
 -- category:
 extra-source-files: CHANGELOG.md
 
-executable HuntDemo
-    main-is:          Main.hs
+executable TxtDemo
+    main-is: Main.hs
 
     -- Modules included in this executable, other than Main.
     -- other-modules:
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
-    build-depends:    base ^>=4.14.3.0, directory ^>= 1.3.8.1, csv ^>= 0.1.2
-    hs-source-dirs:   app
+    build-depends: base ^>=4.14.3.0, directory ^>= 1.3.8.1
+    hs-source-dirs: TxtDemo
+    default-language: Haskell2010
+
+executable CsvDemo
+    main-is: Main.hs
+    build-depends: base ^>=4.14.3.0, csv ^>= 0.1.2
+    hs-source-dirs: CsvDemo
+    default-language: Haskell2010
+
+executable JsonDemo
+    main-is: Main.hs
+    build-depends: base ^>=4.14.3.0, aeson ^>=2.1.2.1, bytestring ^>= 0.11.4.0
+    hs-source-dirs: JsonDemo
     default-language: Haskell2010
