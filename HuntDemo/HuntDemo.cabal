@@ -44,3 +44,15 @@ executable JsonDemo
     build-depends: base ^>=4.14.3.0, aeson ^>=2.1.2.1, bytestring ^>= 0.11.4.0
     hs-source-dirs: JsonDemo
     default-language: Haskell2010
+
+executable XmlDemo
+    main-is: Main.hs
+    build-depends: base ^>=4.14.3.0, hxt ^>=9.3.1.22
+    hs-source-dirs: XmlDemo
+    default-language: Haskell2010
+
+executable HtmlDemo
+    main-is: Main.hs
+    build-depends: base ^>=4.14.3.0, hxt ^>=9.3.1.22, split ^>=0.2.3.5
+    hs-source-dirs: HtmlDemo
+    default-language: Haskell2010

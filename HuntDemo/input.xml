@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<peoples>
+    <people>
+        <name>张三</name>
+        <age>34</age>
+    </people>
+    <people>
+        <name>李四</name>
+        <age>32</age>
+    </people>
+    <people hide="true">
+        <name>Tom</name>
+        <age>14</age>
+    </people>
+</peoples>
