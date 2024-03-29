@@ -1,5 +1,9 @@
 # [trial-haskell](https://github.com/chaosannals/trial-haskell)
 
+直接使用官方的脚本命令可以正常安装了。
+
+## 旧
+
 注：这里是使用了国内 科大源 进行安装，不然速度慢到会失败。
 
 直接在 [科大镜像](https://mirrors.ustc.edu.cn/) 找，以下版本老的话是无效的。找最新的。
