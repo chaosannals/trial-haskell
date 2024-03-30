@@ -31,9 +31,6 @@ main = scotty 3000 $ do
     middleware logStdoutDev
     middleware $ staticPolicy (noDots >-> addBase "examples/uploads")
 
-    -- currentDir <- getCurrentDirectory
-    -- putStrLn $ currentDir
-
     get "/" $ do
         html $ renderHtml
              $ H.html $ do
@@ -54,7 +51,8 @@ main = scotty 3000 $ do
           -- copy temp file to local dir
           liftIO (do
                      fc <- B.readFile fpath
-                     B.writeFile ("examples" </> "uploads" </> fnam) fc
+                     cdir <- getCurrentDirectory
+                     B.writeFile (cdir </> "examples" </> "uploads" </> fnam) fc
                  ) `catch` (\(e :: SomeException) -> do
                                liftIO $ putStrLn $ unwords ["upload: something went wrong while saving temp files :", show e]
                            )

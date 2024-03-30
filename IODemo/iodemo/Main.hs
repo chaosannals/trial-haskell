@@ -1,4 +1,9 @@
 module Main where
 
+import System.Directory
+import System.FilePath
+
 main :: IO ()
-main = putStrLn "Hello, Haskell!"
+main = do
+    currentDir <- getCurrentDirectory
+    putStrLn (currentDir </> ".env")
