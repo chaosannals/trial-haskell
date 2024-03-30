@@ -27,7 +27,11 @@ accordingly.
 -}
 
 main :: IO ()
-main = scotty 3000 $ do
+main = do
+  currentDir <- getCurrentDirectory
+  putStrLn $ currentDir </> ".env"
+
+  scotty 3000 $ do
     middleware logStdoutDev
     middleware $ staticPolicy (noDots >-> addBase "examples/uploads")
 

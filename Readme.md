@@ -36,3 +36,8 @@ repository mirrors.ustc.edu.cn
   url: https://mirrors.ustc.edu.cn/hackage/
   secure: True
 ```
+
+## 语法
+
+do 是一个链式，每一行都必须是相同的尾式。
+当 do 被作为参数时，尾式由调用函数参数推到出来。
