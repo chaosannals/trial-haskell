@@ -1,5 +1,7 @@
 
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE TypeFamilies #-}
 
 module Main where
 
@@ -26,15 +28,13 @@ data UserT f
   } deriving Generic
 instance Beamable UserT
 type User = UserT Identity
-
+type UserId = PrimaryKey UserT Identity
 -- TODO
 instance Table UserT where
   data PrimaryKey UserT f = UserId (Columnar f Int32)
     deriving Generic
   primaryKey = UserId . userId
 instance Beamable (PrimaryKey UserT)
-
-type UserId = PrimaryKey UserT Identity
 
 data MyDbT f = MyDbT
   { myUsers :: f (TableEntity UserT)}
@@ -51,8 +51,8 @@ main = do
     runInsert $
       insert (myUsers myDb) $
         insertValues
-          [ User "james@example.com" "James" "Smith" "b4cc344d25a2efe540adbf2678e2304c" {- james -},
-            User "betty@example.com" "Betty" "Jones" "82b054bd83ffad9b6cf8bdb98ce3cc2f" {- betty -},
-            User "sam@example.com" "Sam" "Taylor" "332532dcfaa1cbf61e2a266bd723612c" {- sam -}
+          [ User 1 "james@example.com" "James" "Smith" "b4cc344d25a2efe540adbf2678e2304c" {- james -},
+           User 2 "betty@example.com" "Betty" "Jones" "82b054bd83ffad9b6cf8bdb98ce3cc2f" {- betty -},
+           User 3 "sam@example.com" "Sam" "Taylor" "332532dcfaa1cbf61e2a266bd723612c" {- sam -}
           ]
   putStrLn "Hello, Haskell!"
