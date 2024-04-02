@@ -54,6 +54,8 @@ common warnings
     ghc-options: -Wall
 
 library
+    -- 这个没有命名，是主库
+    -- 模块名和 目录名 强对应。
     exposed-modules: SqliteDemo.Simple
     build-depends: base ^>=4.17.2.1,
                     text,
@@ -154,6 +156,21 @@ executable SelectDemo
     -- Base language which the package is written in.
     default-language: GHC2021
 
+library MySQLDemo
+    -- 模块名和 目录名 强对应。
+    exposed-modules: MySQLDemo.Simple
+    build-depends: base ^>=4.17.2.1,
+                    text,
+                    scientific,
+                    sqlite-simple,
+                    beam-core,
+                    beam-migrate
+    -- Directories containing source files.
+    hs-source-dirs:   MySQLDemo
+
+    -- Base language which the package is written in.
+    default-language: GHC2021
+
 executable MySQLInsertDemo
     -- Import common warning flags.
     import:           warnings
@@ -171,7 +188,8 @@ executable MySQLInsertDemo
     build-depends:    base ^>=4.17.2.1,
                     text,
                     beam-core,
-                    -- beam-mysql, // 这个库 2018年后就没有更新，也不是官方库，已经不兼容新的 haskell 了。
+                    -- 这个库 2018年后就没有更新，也不是官方库，已经不兼容新的 haskell 了。
+                    -- beam-mysql,
                     beam-migrate
 
     -- Directories containing source files.
