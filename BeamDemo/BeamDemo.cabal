@@ -145,7 +145,8 @@ executable SelectDemo
                     sqlite-simple,
                     beam-core,
                     beam-sqlite,
-                    beam-migrate
+                    beam-migrate,
+                    BeamDemo
 
     -- Directories containing source files.
     hs-source-dirs:   SelectDemo

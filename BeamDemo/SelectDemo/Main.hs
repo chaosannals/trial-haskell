@@ -1,6 +1,7 @@
 module Main where
 
 import Database.SQLite.Simple
+import SqliteDemo.Simple
 
 main :: IO ()
 main = do
