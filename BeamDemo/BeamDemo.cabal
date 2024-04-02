@@ -53,6 +53,34 @@ extra-doc-files:    CHANGELOG.md
 common warnings
     ghc-options: -Wall
 
+executable CreateDemo
+    -- Import common warning flags.
+    import:           warnings
+
+    -- .hs or .lhs file containing the Main module.
+    main-is:          Main.hs
+
+    -- Modules included in this executable, other than Main.
+    -- other-modules:
+
+    -- LANGUAGE extensions used by modules in this package.
+    -- other-extensions:
+
+    -- Other library packages from which modules are imported.
+    build-depends:    base ^>=4.17.2.1,
+                    text,
+                    scientific,
+                    sqlite-simple,
+                    beam-core,
+                    beam-sqlite,
+                    beam-migrate
+
+    -- Directories containing source files.
+    hs-source-dirs:   CreateDemo
+
+    -- Base language which the package is written in.
+    default-language: GHC2021
+
 executable InsertDemo
     -- Import common warning flags.
     import:           warnings
