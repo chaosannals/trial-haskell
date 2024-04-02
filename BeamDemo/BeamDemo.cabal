@@ -53,6 +53,21 @@ extra-doc-files:    CHANGELOG.md
 common warnings
     ghc-options: -Wall
 
+library
+    exposed-modules: SqliteDemo.Simple
+    build-depends: base ^>=4.17.2.1,
+                    text,
+                    scientific,
+                    sqlite-simple,
+                    beam-core,
+                    beam-sqlite,
+                    beam-migrate
+    -- Directories containing source files.
+    hs-source-dirs:   SqliteDemo
+
+    -- Base language which the package is written in.
+    default-language: GHC2021
+
 executable CreateDemo
     -- Import common warning flags.
     import:           warnings
@@ -89,7 +104,7 @@ executable InsertDemo
     main-is:          Main.hs
 
     -- Modules included in this executable, other than Main.
-    -- other-modules:
+    -- other-modules:  
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
@@ -101,7 +116,8 @@ executable InsertDemo
                     sqlite-simple,
                     beam-core,
                     beam-sqlite,
-                    beam-migrate
+                    beam-migrate,
+                    BeamDemo
 
     -- Directories containing source files.
     hs-source-dirs:   InsertDemo
