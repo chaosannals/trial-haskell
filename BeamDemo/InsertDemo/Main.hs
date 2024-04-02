@@ -29,7 +29,6 @@ data UserT f
 instance Beamable UserT
 type User = UserT Identity
 type UserId = PrimaryKey UserT Identity
--- TODO
 instance Table UserT where
   data PrimaryKey UserT f = UserId (Columnar f Int32)
     deriving Generic
@@ -41,9 +40,15 @@ data MyDbT f = MyDbT
   deriving Generic
 instance Database be MyDbT
 
-myDb :: DatabaseSettings be MyDbT
-myDb = defaultDbSettings
 
+myDb :: DatabaseSettings be MyDbT
+myDb = defaultDbSettings 
+  `withDbModification` (dbModification {
+    -- 默认表名是 users 这里指定表名为 User
+    myUsers = setEntityName "User"
+      -- 不知道这个 modify 意义何在，没有版本号的迁移。。。
+      -- <> modifyTableFields (User "UserId" "Title" (UserId "UserId"))
+  })
 main :: IO ()
 main = do
   conn <- open "beamdemo.db"
@@ -55,4 +60,4 @@ main = do
            User 2 "betty@example.com" "Betty" "Jones" "82b054bd83ffad9b6cf8bdb98ce3cc2f" {- betty -},
            User 3 "sam@example.com" "Sam" "Taylor" "332532dcfaa1cbf61e2a266bd723612c" {- sam -}
           ]
-  putStrLn "Hello, Haskell!"
+  putStrLn "insert"
