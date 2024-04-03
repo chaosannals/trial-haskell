@@ -39,9 +39,9 @@ data UserT f
 
 instance Beamable UserT
 
-type User = UserT Identity
+type User = UserT Identity; deriving instance Show User
 
-type UserId = PrimaryKey UserT Identity
+type UserId = PrimaryKey UserT Identity; deriving instance Show UserId
 
 instance Table UserT where
   data PrimaryKey UserT f = UserId (Columnar f Int32)
@@ -49,6 +49,7 @@ instance Table UserT where
   primaryKey = UserId . userId
 
 instance Beamable (PrimaryKey UserT)
+deriving instance Show (PrimaryKey UserT (Nullable Identity))
 
 -- Book
 
